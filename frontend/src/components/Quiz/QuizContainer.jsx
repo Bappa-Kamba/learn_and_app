@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import QuestionCard from './QuestionCard';
-import { dummyQuiz } from '../data/dummyData'; // Import dummy data
+import { dummyQuiz } from '../../data/dummyData';
 
 const QuizContainer = () => {
   const [quiz, setQuiz] = useState(null);

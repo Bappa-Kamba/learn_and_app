@@ -1,25 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const QuestionCard = ({ question, onAnswer }) => {
+const QuestionCard = ({ quiz }) => {
+  if (!quiz) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md">
-      <h2 className="text-xl mb-4">{question.text}</h2>
-      <div className="flex justify-between">
-        <button
-          className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700"
-          onClick={() => onAnswer(true)}
-        >
-          True
-        </button>
-        <button
-          className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
-          onClick={() => onAnswer(false)}
-        >
-          False
-        </button>
-      </div>
+    <div className="question-card p-4 border rounded shadow">
+      <h2 className="text-lg font-semibold">{quiz.question}</h2>
+      <ul className="options mt-2">
+        {quiz.options.map((option, index) => (
+          <li key={index} className="option p-2 border rounded mt-1">
+            {option}
+          </li>
+        ))}
+      </ul>
     </div>
   );
+};
+
+QuestionCard.propTypes = {
+  quiz: PropTypes.shape({
+    question: PropTypes.string,
+    options: PropTypes.arrayOf(PropTypes.string),
+    answer: PropTypes.string,
+  }),
 };
 
 export default QuestionCard;
