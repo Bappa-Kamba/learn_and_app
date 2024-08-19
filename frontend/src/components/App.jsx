@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from '../components/NavBar/NavBar';
-import FlashcardContainer from '../components/Flashcards/Flashcard';
+import FlashcardContainer from '../components/Flashcards/FlashcardContainer';
 import QuizContainer from '../components/Quiz/QuizContainer';
+import Profile from '../components/Profile/Profile';
 import Home from './Home';
 
 
@@ -16,6 +17,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/flashcards" element={<FlashcardContainer />} />
             <Route path="/quiz" element={<QuizContainer />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </main>
         <footer className="bg-gray-800 text-white text-center py-4">
